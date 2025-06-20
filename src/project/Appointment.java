@@ -7,5 +7,4 @@ public class Appointment {
 		super();
 		this.name = name;
 	}
-
 }
