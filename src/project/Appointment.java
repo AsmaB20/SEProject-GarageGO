@@ -85,7 +85,7 @@ public class Appointment {
 				+ appointmentDateTime + ", status=" + status + ", services=" + services + "]";
 	}
 
-	public class AppointmentBuilder {
+	public static class AppointmentBuilder {
 		// Required parameters
 		private VehicleOwner vehicleOwner;
 		private GarageProfile garage;
@@ -107,19 +107,20 @@ public class Appointment {
 
 		// Instead of the setter
 		public AppointmentBuilder addService(Service service, double price) {
-			if (service != null && price != 0.0 && !services.containsKey(service))
+			if (service != null && price != 0.0)
 				this.services.put(service, price);
 			return this;
 		}
 
-		public void setStatus(Status status) {
-			this.status = status;
+		public AppointmentBuilder setAppointmentDateTime(Date date) {
+		    this.appointmentDateTime = date;
+		    return this;
 		}
 
-		public void setServices(Map<Service, Double> services) {
-			this.services = services;
+		public AppointmentBuilder setStatus(Status status) {
+		    this.status = status;
+		    return this;
 		}
-
 		@Override
 		public String toString() {
 			return "AppointmentBuilder [vehicleOwner=" + vehicleOwner + ", garage=" + garage + ", appointmentDateTime="
