@@ -99,6 +99,7 @@ public class Appointment {
 		public AppointmentBuilder(VehicleOwner vehicleOwner, GarageProfile garage) {
 			this.vehicleOwner = vehicleOwner;
 			this.garage = garage;
+			services= new HashMap<>();
 		}
 
 		public Appointment build() {
