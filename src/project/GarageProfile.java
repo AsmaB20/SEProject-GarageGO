@@ -1,13 +1,20 @@
 package project;
 
 public class GarageProfile {
-	private PricingStrategy pricingStrategy;
-    private double currentDemandLevel = 1.0; // Default level
+	public String name;
+	private double currentDemandLevel = 1.0; // Default level
 
+	public GarageProfile(String name) {
+		this.name = name;
+	}
 
-    public void setPricingStrategy(PricingStrategy strategy) {
-        this.pricingStrategy = strategy;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public double getCurrentDemandLevel() {
 		return currentDemandLevel;
@@ -17,8 +24,10 @@ public class GarageProfile {
 		this.currentDemandLevel = currentDemandLevel;
 	}
 
-	public PricingStrategy getPricingStrategy() {
-		return pricingStrategy;
+	@Override
+	public String toString() {
+		return "GarageProfile [name=" + name + ", currentDemandLevel=" + currentDemandLevel + "]";
 	}
 	
+
 }

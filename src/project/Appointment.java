@@ -81,8 +81,8 @@ public class Appointment {
 
 	@Override
 	public String toString() {
-		return "Appointment [vehicleOwner=" + vehicleOwner + ", garage=" + garage + ", appointmentDateTime="
-				+ appointmentDateTime + ", status=" + status + ", services=" + services + "]";
+		return "Appointment [\nvehicleOwner=" + vehicleOwner + ", \ngarage=" + garage + ", \nappointmentDateTime="
+				+ appointmentDateTime + ", \nstatus=" + status + ", \nservices=" + services + "]";
 	}
 
 	public static class AppointmentBuilder {
