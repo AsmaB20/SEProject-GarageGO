@@ -3,7 +3,7 @@ package project;
 import java.util.*;
 
 public class Appointment {
-	// Required parameters.
+	// Required parameters
 	private VehicleOwner vehicleOwner;
 	private GarageProfile garage;
 	// Optional parameters
