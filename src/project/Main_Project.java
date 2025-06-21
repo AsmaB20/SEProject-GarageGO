@@ -17,7 +17,7 @@ public class Main_Project {
             .build();
 
         // Show appointment info in a dialog box
-        //( null >> just show it centered on the screen,Your message that is going to print, Title of the message, The icon behind the message
+        //( just show it centered on the screen,Your message that is going to print, Title of the message, The icon behind the message
         JOptionPane.showMessageDialog(null, appointment.toString(), "Appointment Details", JOptionPane.INFORMATION_MESSAGE);
 
         // Demand-based pricing
