@@ -3,20 +3,22 @@ package project;
 import java.util.*;
 
 public class Appointment {
+	// Required parameters
 	private VehicleOwner vehicleOwner;
-    private GarageProfile garage;
-    private Date appointmentDateTime;
-    private Status status;
-    private Map<Service, Double> services;
-    
- // Private constructor used by the builder
-    private Appointment(AppointmentBuilder builder) {
-        this.vehicleOwner = builder.vehicleOwner;
-        this.garage = builder.garage;
-        this.appointmentDateTime = builder.appointmentDateTime;
-        this.status = builder.status;
-        this.services = builder.services;
-    }
+	private GarageProfile garage;
+	// Optional parameters
+	private Date appointmentDateTime;
+	private Status status;
+	private Map<Service, Double> services;
+
+	// Private constructor
+	private Appointment(AppointmentBuilder builder) {
+		this.vehicleOwner = builder.vehicleOwner;
+		this.garage = builder.garage;
+		this.appointmentDateTime = builder.appointmentDateTime;
+		this.status = builder.status;
+		this.services = builder.services;
+	}
 
 	public VehicleOwner getVehicleOwner() {
 		return vehicleOwner;
@@ -82,6 +84,48 @@ public class Appointment {
 		return "Appointment [vehicleOwner=" + vehicleOwner + ", garage=" + garage + ", appointmentDateTime="
 				+ appointmentDateTime + ", status=" + status + ", services=" + services + "]";
 	}
-    
+
+	public class AppointmentBuilder {
+		// Required parameters
+		private VehicleOwner vehicleOwner;
+		private GarageProfile garage;
+		// Optional parameters
+		private Date appointmentDateTime;
+		private Status status;
+		private Map<Service, Double> services;
+
+		// Constructor for required parameters
+
+		public AppointmentBuilder(VehicleOwner vehicleOwner, GarageProfile garage) {
+			this.vehicleOwner = vehicleOwner;
+			this.garage = garage;
+		}
+
+		public Appointment build() {
+			return new Appointment(this);
+		}
+
+		// Instead of the setter
+		public AppointmentBuilder addService(Service service, double price) {
+			if (service != null && price != 0.0 && !services.containsKey(service))
+				this.services.put(service, price);
+			return this;
+		}
+
+		public void setStatus(Status status) {
+			this.status = status;
+		}
+
+		public void setServices(Map<Service, Double> services) {
+			this.services = services;
+		}
+
+		@Override
+		public String toString() {
+			return "AppointmentBuilder [vehicleOwner=" + vehicleOwner + ", garage=" + garage + ", appointmentDateTime="
+					+ appointmentDateTime + ", status=" + status + ", services=" + services + "]";
+		}
+
+	}
 
 }
