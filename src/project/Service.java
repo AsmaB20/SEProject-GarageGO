@@ -32,4 +32,5 @@ public class Service {
 		return "Service [name=" + name + ", basePrice=" + basePrice + ", durationInMinutes=" + durationInMinutes + "]";
 	}
 
+
 }
