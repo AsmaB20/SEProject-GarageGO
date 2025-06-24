@@ -50,6 +50,18 @@ public class Main_Project {
         ReviewService.showReviews(garage2);
         ReviewService.showReviews(garage);
         
+        ////Decorator for service////
+     // Basic service
+        Service basicService = new Service("Oil Change", 100.0, 30);
+
+        // Decorating it
+        Service premiumService = new PremiumOilDecorator(basicService);
+        Service expressPremium = new ExpressServiceDecorator(premiumService);
+
+        System.out.println("Base Service: " + basicService.getName() + ", Price: QAR " + basicService.getBasePrice() + ", Time: " + basicService.getDurationInMinutes() + " mins");
+        System.out.println("Premium Service: " + premiumService.toString() + ", Price: QAR " + premiumService.getBasePrice() + ", Time: " + premiumService.getDurationInMinutes() + " mins");
+        System.out.println("Express Premium: " + expressPremium.toString() + ", Price: QAR " + expressPremium.getBasePrice() + ", Time: " + expressPremium.getDurationInMinutes() + " mins");
+        
 	}
 	
 }
