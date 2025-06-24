@@ -30,6 +30,26 @@ public class Main_Project {
 
         // Show final price
         JOptionPane.showMessageDialog(null, "Final Price: QAR " + finalPrice, "Pricing Result", JOptionPane.INFORMATION_MESSAGE);
-    }
+///////Search Service //////
+        
+        GarageProfile garage2 = new GarageProfile("Quick Change");
+        SearchService.AddGarages(new GarageProfile[] {garage,garage2});
+
+        SearchService.searchGaragesByService("Oil Change");
+        SearchService.searchGaragesByVehicleType(VehicleType.CAR);
+
+       
+        ////Review SYstem///
+     // ========== Example usage of Review System ==========
+        Review review1 = new Review(owner, garage2, "Excellent service and friendly staff!", 5);
+        Review review2 = new Review(owner, garage2, "Quick and affordable.", 4);
+
+        ReviewService.addReview(garage2, review1);
+        ReviewService.addReview(garage2, review2);
+
+        ReviewService.showReviews(garage2);
+        ReviewService.showReviews(garage);
+        
+	}
 	
 }
